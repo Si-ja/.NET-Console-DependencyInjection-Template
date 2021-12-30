@@ -6,25 +6,25 @@ namespace ConsoleDIBluprint.Messaging
 {
     public class ContextMessages : IContextMessages
     {
-        private readonly IOptions<Settings> _settings;
-        private readonly IOptions<Error> _error;
+        private readonly Settings _settings;
+        private readonly Error _error;
 
         public ContextMessages(
             IOptions<Settings> settingsOptions,
             IOptions<Error> errorOptions)
         {
-            _settings = settingsOptions;
-            _error = errorOptions;
+            _settings = settingsOptions.Value;
+            _error = errorOptions.Value;
         }
 
         public void ProgressInformation()
         {
-            Console.WriteLine($"{_settings.Value.InitialMessage}");
+            Console.WriteLine($"{_settings.InitialMessage}");
         }
 
         public void UnexpectedError()
         {
-            Console.WriteLine($"Error: {_error.Value.ErrorMessage}\nError Code: #{_error.Value.ErrorCode}");
+            Console.WriteLine($"Error: {_error.ErrorMessage}\nError Code: #{_error.ErrorCode}");
         }
     }
 }

@@ -5,7 +5,6 @@ using ConsoleDIBluprint.Messaging;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
-using Microsoft.Extensions.Options;
 
 namespace ConsoleDIBluprint.ServicesHelper
 {
